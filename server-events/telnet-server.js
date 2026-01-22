@@ -19,7 +19,7 @@ module.exports = {
         stream.attach(telnetSocket);
 
         stream.on('interrupt', () => {
-          stream.write("\n*interrupt*\n");
+          stream.write("\r\n*interrupt*");
         });
 
         stream.on('error', err => {
@@ -33,7 +33,7 @@ module.exports = {
         // Register all of the input events (login, etc.)
         state.InputEventManager.attach(stream);
 
-        stream.write("Connecting...\n");
+        stream.write("Connecting...\r\n");
         Logger.log("User connected...");
 
         // @see: bundles/ranvier-events/events/login.js
